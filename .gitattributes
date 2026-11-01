@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# images stay byte-for-byte
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
