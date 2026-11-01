@@ -1,0 +1,46 @@
+{
+  "name": "portpeek",
+  "version": "0.1.0",
+  "description": "See which process is holding a port. One command, cross-platform, no dependencies.",
+  "type": "module",
+  "bin": {
+    "portpeek": "bin/portpeek.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/portpeek.js && node --check src/cli.js"
+  },
+  "keywords": [
+    "port",
+    "ports",
+    "netstat",
+    "lsof",
+    "ss",
+    "process",
+    "cli",
+    "networking",
+    "diagnostics",
+    "eaddrinuse"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangtianbao-debug/portpeek.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wangtianbao-debug/portpeek/issues"
+  },
+  "homepage": "https://github.com/wangtianbao-debug/portpeek#readme"
+}

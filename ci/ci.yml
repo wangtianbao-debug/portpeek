@@ -1,0 +1,30 @@
+# Copy to .github/workflows/ci.yml to enable.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [18, 20, 22, 24]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Unit tests
+        run: node --test
+
+      - name: Smoke test against the real socket table
+        run: node bin/portpeek.js
+
+      - name: Port check exit code
+        run: node bin/portpeek.js --free
